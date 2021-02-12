@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
-import './Header.css';
+import React, { Component } from "react";
+import "./Header.css";
+import axios from "axios";
 
 export default class Header extends Component {
   constructor() {
     super();
     this.state = {
-      username: '',
-      password: '',
+      username: "",
+      password: "",
       isAdmin: false,
     };
     this.register = this.register.bind(this);
@@ -58,16 +59,21 @@ export default class Header extends Component {
               type="text"
               placeholder="Username"
               value={username}
-              onChange={e => this.handleUsernameInput(e.target.value)}
+              onChange={(e) => this.handleUsernameInput(e.target.value)}
             />
             <input
               type="password"
               placeholder="Password"
               value={password}
-              onChange={e => this.handlePasswordInput(e.target.value)}
+              onChange={(e) => this.handlePasswordInput(e.target.value)}
             />
             <div className="adminCheck">
-              <input type="checkbox" id="adminCheckbox" onChange={() => this.toggleAdmin()} /> <span> Admin </span>
+              <input
+                type="checkbox"
+                id="adminCheckbox"
+                onChange={() => this.toggleAdmin()}
+              />{" "}
+              <span> Admin </span>
             </div>
             <button onClick={this.login}>Log In</button>
             <button onClick={this.register} id="reg">
@@ -79,4 +85,3 @@ export default class Header extends Component {
     );
   }
 }
-
